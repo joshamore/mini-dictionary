@@ -29,11 +29,13 @@ const InputHeader = styled.h1`
 interface HomeInputSectionProps {
   loading: boolean;
   handleGetDefinitions: (word: string) => void;
+  handleClearDefinitions: () => void;
 }
 
 const HomeInputSection = ({
   loading,
   handleGetDefinitions,
+  handleClearDefinitions,
 }: HomeInputSectionProps) => {
   return (
     <InputSection>
@@ -44,6 +46,7 @@ const HomeInputSection = ({
           buttonText="Get Definitions"
           placeHolderText="New word..."
           handleSubmit={handleGetDefinitions}
+          handleInitialClick={handleClearDefinitions}
         />
       </InputContainer>
     </InputSection>

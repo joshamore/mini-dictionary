@@ -13,7 +13,7 @@ const Home = () => {
   const [definitions, setDefinitions] = useState<string[]>([]);
 
   /**
-   * Handler function to fetch definitions from the API.
+   * Handler to fetch definitions from the API.
    *
    * @param {string} word The word that requires definitions.
    */
@@ -46,16 +46,23 @@ const Home = () => {
       setLoading(false);
     }
   };
+
+  /**
+   * Handler to clear definitions.
+   */
+  const handleClearDefinitions = () => setDefinitions([]);
+
   return (
     <CoreLayout>
       <HomeInputSection
         loading={loading}
         handleGetDefinitions={handleGetDefinitions}
+        handleClearDefinitions={handleClearDefinitions}
       />
 
       <HomeDefinitionsSection
         definitions={definitions}
-        handleClearDefinitions={() => setDefinitions([])}
+        handleClearDefinitions={handleClearDefinitions}
       />
     </CoreLayout>
   );

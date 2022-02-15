@@ -40,6 +40,7 @@ interface CoreTextFormProps {
   placeHolderText?: string;
   disabled: boolean;
   handleSubmit: (value: string) => void;
+  handleInitialClick?: () => void;
 }
 
 const CoreTextForm = ({
@@ -47,6 +48,7 @@ const CoreTextForm = ({
   placeHolderText = "Enter text",
   disabled,
   handleSubmit,
+  handleInitialClick,
 }: CoreTextFormProps) => {
   const [inputValue, setInputValue] = useState("");
 
@@ -57,6 +59,10 @@ const CoreTextForm = ({
    */
   const handleFormSubmit = (e: SyntheticEvent) => {
     e.preventDefault();
+
+    // Trigger initial click func if present.
+    handleInitialClick && handleInitialClick();
+
     if (inputValue.length === 0) {
       toast.info("Please enter a value 😊");
     } else {
