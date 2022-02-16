@@ -1,5 +1,7 @@
 import styled from "styled-components";
 
+import { convertStringToKey } from "../helpers/utils";
+
 import HomeContainer from "./HomeContainer";
 import CoreActionButton from "../components/core/CoreActionButton";
 
@@ -53,7 +55,9 @@ const HomeDefinitionsSection = ({
 
         <StyledUl>
           {definitions.map((definition: string) => (
-            <StyledLi>{definition}</StyledLi>
+            <StyledLi key={convertStringToKey(definition)}>
+              {definition}
+            </StyledLi>
           ))}
         </StyledUl>
       </HomeContainer>

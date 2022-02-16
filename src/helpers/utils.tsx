@@ -22,3 +22,20 @@ export const extractDefintions = (dictionaryData: any[]) => {
 
   return cleanDefinitions;
 };
+
+/**
+ * A helper function to convert a string to a key
+ *
+ * @param {string} str The string to be modified.
+ */
+export const convertStringToKey = (str: string) => {
+  // Replacing spaces with dashes.
+  let key = str.replace(/\s/g, "-");
+
+  if (key.length > 21) {
+    // Truncating key to 20 characters.
+    key = key.substring(0, 20);
+  }
+
+  return key;
+};
