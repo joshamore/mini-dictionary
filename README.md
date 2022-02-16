@@ -1,5 +1,7 @@
 # Mini Dictionary
 
+A tool to display the meaning/meanings of a provided word.
+
 **Deployed version available here: https://minidictionary.joshamore.com**
 
 ## Built with
