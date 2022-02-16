@@ -17,6 +17,9 @@ const StyledTextInput = styled.input`
   padding: 8px;
   border-radius: 8px;
   border: 2px solid ${COLORS.border};
+  ${STYLES.smDown} {
+    margin: 0 20%;
+  }
 `;
 
 const SubmitButton = styled.button<{ disabled: boolean }>`
