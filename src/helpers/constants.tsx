@@ -4,7 +4,6 @@ export const COLORS = {
   secondary: "#f0f4ff",
   border: "#8892B3",
   white: "#FFFFFA",
-  black: "#080705",
 };
 
 export const STYLES = {
