@@ -1,8 +1,8 @@
 import { useState } from "react";
-import axios from "axios";
 import { toast } from "react-toastify";
 
 import { extractDefintions } from "../helpers/utils";
+import { fetchDictionaryWords } from "../helpers/fetchers";
 
 import CoreLayout from "../components/core/CoreLayout";
 import HomeInputSection from "../components/HomeInputSection";
@@ -21,30 +21,20 @@ const Home = () => {
     // Set loading to update UI
     setLoading(true);
 
-    try {
-      const dictionaryReponse = await axios.get(
-        `https://api.dictionaryapi.dev/api/v2/entries/en/${word}`
-      );
-      const dictionaryData = dictionaryReponse?.data;
+    // Getting API response for word.
+    const dictionaryReponse = await fetchDictionaryWords(word);
 
-      // Throwing to catch if no data is returned.
-      if (!dictionaryData) {
-        throw new Error(`No definition data found for ${word}.`);
-      }
-
-      const definitions = extractDefintions(dictionaryData || []);
-      setDefinitions(definitions);
-    } catch (error: any) {
-      // Extracting error message from possible formats. Attempting dictionaryapi format first.
-      const errorMessage =
-        error?.response?.data?.message ||
-        error?.message ||
-        `Unable to get definitions for ${word}`;
-      toast.error(errorMessage);
-    } finally {
-      // Set loading to update UI
+    // Displaying error if no data present.
+    if (!dictionaryReponse.data) {
+      // Display error message.
+      toast.error(dictionaryReponse.error.message);
       setLoading(false);
     }
+
+    const dictionaryData = dictionaryReponse.data;
+    const definitions = extractDefintions(dictionaryData || []);
+    setDefinitions(definitions);
+    setLoading(false);
   };
 
   /**

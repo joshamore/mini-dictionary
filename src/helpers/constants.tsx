@@ -12,3 +12,5 @@ export const STYLES = {
   smDown: "@media (max-width: 575px)",
   smUp: "@media (min-width: 576px)",
 };
+
+export const API_URL = "https://api.dictionaryapi.dev/api/v2/entries/en/";
