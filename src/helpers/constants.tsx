@@ -9,4 +9,6 @@ export const COLORS = {
 
 export const STYLES = {
   defaultTransition: "all 0.2s ease",
+  smDown: "@media (max-width: 575px)",
+  smUp: "@media (min-width: 576px)",
 };

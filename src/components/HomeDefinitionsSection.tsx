@@ -1,8 +1,6 @@
-import React from "react";
 import styled from "styled-components";
 
-import { COLORS } from "../helpers/constants";
-
+import HomeContainer from "./HomeContainer";
 import CoreActionButton from "../components/core/CoreActionButton";
 
 const DefinitionsSection = styled.section`
@@ -10,17 +8,6 @@ const DefinitionsSection = styled.section`
   margin: 16px 0;
   display: flex;
   justify-content: center;
-`;
-
-const DefinitionsContainer = styled.div`
-  width: 350px;
-  padding: 8px;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  background-color: ${COLORS.secondary};
-  border: 2px solid ${COLORS.border};
-  border-radius: 8px;
 `;
 
 const ButtonContainer = styled.div`
@@ -56,7 +43,7 @@ const HomeDefinitionsSection = ({
 
   return (
     <DefinitionsSection>
-      <DefinitionsContainer>
+      <HomeContainer>
         <ButtonContainer>
           <CoreActionButton
             buttonText="clear results"
@@ -69,7 +56,7 @@ const HomeDefinitionsSection = ({
             <StyledLi>{definition}</StyledLi>
           ))}
         </StyledUl>
-      </DefinitionsContainer>
+      </HomeContainer>
     </DefinitionsSection>
   );
 };

@@ -1,24 +1,12 @@
 import styled from "styled-components";
 
-import { COLORS } from "../helpers/constants";
-
+import HomeContainer from "./HomeContainer";
 import CoreTextForm from "./core/CoreTextForm";
 
 const InputSection = styled.section`
   width: 100%;
   display: flex;
   justify-content: center;
-`;
-
-const InputContainer = styled.div`
-  width: 350px;
-  padding: 8px;
-  display: flex;
-  justify-content: center;
-  flex-wrap: wrap;
-  background-color: ${COLORS.secondary};
-  border: 2px solid ${COLORS.border};
-  border-radius: 8px;
 `;
 
 const InputHeader = styled.h1`
@@ -39,7 +27,7 @@ const HomeInputSection = ({
 }: HomeInputSectionProps) => {
   return (
     <InputSection>
-      <InputContainer>
+      <HomeContainer>
         <InputHeader>Enter a word</InputHeader>
         <CoreTextForm
           disabled={loading}
@@ -48,7 +36,7 @@ const HomeInputSection = ({
           handleSubmit={handleGetDefinitions}
           handleInitialClick={handleClearDefinitions}
         />
-      </InputContainer>
+      </HomeContainer>
     </InputSection>
   );
 };

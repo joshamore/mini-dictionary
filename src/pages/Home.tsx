@@ -59,7 +59,6 @@ const Home = () => {
         handleGetDefinitions={handleGetDefinitions}
         handleClearDefinitions={handleClearDefinitions}
       />
-
       <HomeDefinitionsSection
         definitions={definitions}
         handleClearDefinitions={handleClearDefinitions}
